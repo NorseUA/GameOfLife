@@ -1,20 +1,8 @@
 const config = [
   {
-    path: '/test',
-    label: 'Test',
+    path: '/new_game',
+    label: 'New game',
   },
-  {
-    path: '/another',
-    label: 'aNOTSR',
-  },
-  // {
-  //   path: '',
-  //   label: '',
-  // },
-  // {
-  //   path: '',
-  //   label: '',
-  // },
   // {
   //   path: '',
   //   label: '',
