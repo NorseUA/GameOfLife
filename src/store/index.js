@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import fill from 'lodash/fill';
+import getters from './getters';
+import mutations from './mutations';
 
 Vue.use(Vuex);
 
@@ -12,17 +13,8 @@ const store = new Vuex.Store({
     },
     colony: [],
   },
-  getters: {
-    fieldSize: ({ fieldSize }) => fieldSize,
-    colony: ({ colony }) => colony,
-  },
-  mutations: {
-    computeEmptyColony(state) {
-      const { rows, columns } = state.fieldSize;
-      const colonyRow = fill(new Array(columns), false);
-      state.colony = fill(new Array(rows), colonyRow); // eslint-disable-line
-    },
-  },
+  getters,
+  mutations,
 });
 
 export default store;

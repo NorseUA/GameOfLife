@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div></div>
     <game-field></game-field>
   </div>
 </template>
@@ -10,17 +11,12 @@
   export default {
     name: 'NewGamePage',
     created() {
-      this.computeEmptyColony();
+      this.$store.commit({
+        type: 'computeEmptyColony',
+      });
     },
     components: {
       'game-field': GameField,
-    },
-    methods: {
-      computeEmptyColony() {
-        this.$store.commit({
-          type: 'computeEmptyColony',
-        });
-      },
     },
   };
 </script>
