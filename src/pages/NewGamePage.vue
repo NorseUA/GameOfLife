@@ -11,9 +11,7 @@
   export default {
     name: 'NewGamePage',
     created() {
-      this.$store.commit({
-        type: 'computeEmptyColony',
-      });
+      this.$store.dispatch('createNewEmptyColony');
     },
     components: {
       'game-field': GameField,

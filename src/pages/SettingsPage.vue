@@ -6,19 +6,25 @@
       <size-control
         :label="'Rows:'"
         :metricType="'rows'"
+        :initialSize="fieldSize.rows"
+        @changeSize="changeFieldSize"
       ></size-control>
       <size-control
         :label="'Columns:'"
         :metricType="'columns'"
+        :initialSize="fieldSize.columns"
+        @changeSize="changeFieldSize"
       ></size-control>
       <div>
         <button @click="applySettings">Save</button>
+        <button @click="cancelSettings">Cancel</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
   import { FieldSizeControls } from '../components';
 
   export default {
@@ -26,9 +32,30 @@
     components: {
       'size-control': FieldSizeControls,
     },
+    data() {
+      return {
+        rows: 0,
+        columns: 0,
+      };
+    },
+    computed: {
+      ...mapGetters({
+        fieldSize: 'fieldSize',
+      }),
+    },
     methods: {
       applySettings() {
+        this.$store.dispatch('changeFieldSize', {
+          rows: this.rows,
+          columns: this.columns,
+        });
         this.$router.push('/');
+      },
+      cancelSettings() {
+        this.$router.push('/');
+      },
+      changeFieldSize({ metricType, value }) {
+        this[metricType] = value;
       },
     },
   };

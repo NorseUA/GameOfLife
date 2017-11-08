@@ -1,13 +1,16 @@
 /* eslint-disable no-param-reassign */
-import fill from 'lodash/fill';
+import {
+  COMPUTE_EMPTY_COLONY,
+  CHANGE_FIELD_SIZE,
+} from './mutationsTypes';
+import createMatrix from '../helpers/createMatrix';
 
 const mutations = {
-  computeEmptyColony(state) {
+  [COMPUTE_EMPTY_COLONY](state) {
     const { rows, columns } = state.fieldSize;
-    const colonyRow = fill(new Array(columns), false);
-    state.colony = fill(new Array(rows), colonyRow);
+    state.colony = createMatrix(rows, columns);
   },
-  changeFieldSize(state, { rows, columns }) {
+  [CHANGE_FIELD_SIZE](state, { rows, columns }) {
     const size = { ...state.fieldSize };
     size.rows = rows || size.rows;
     size.columns = columns || size.columns;

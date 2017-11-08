@@ -3,8 +3,9 @@
     <label>
       <span>{{ label }}</span>
       <input
+        min="1"
         type="number"
-        :value="currentSize"
+        :value="initialSize"
         @change="changeFieldSize"
       >
     </label>
@@ -12,8 +13,6 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
-
   export default {
     name: 'FieldSizeControls',
     props: {
@@ -23,21 +22,16 @@
       label: {
         type: String,
       },
-    },
-    computed: {
-      ...mapGetters({
-        fieldSize: 'fieldSize',
-      }),
-      currentSize() {
-        return this.fieldSize[this.metricType];
+      initialSize: {
+        type: Number,
       },
     },
     methods: {
       changeFieldSize(evt) {
-        const size = +evt.target.value;
-        this.$store.commit({
-          type: 'changeFieldSize',
-          [this.metricType]: size,
+        const value = +evt.target.value;
+        this.$emit('changeSize', {
+          metricType: this.metricType,
+          value,
         });
       },
     },
