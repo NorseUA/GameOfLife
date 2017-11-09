@@ -1,11 +1,16 @@
 <template>
   <div class="gameField">
-    <field-row v-for="(row, idx) in colony" :key="idx" :row="row"></field-row>
+    <field-row
+      v-for="(row, idx) in colony"
+      :key="idx"
+      :row="row"
+      @cellClick="handleCellClick(idx, $event)"
+    ></field-row>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import { mapGetters, mapActions } from 'vuex';
   import FieldRow from './FieldRow';
 
   export default {
@@ -17,6 +22,12 @@
       ...mapGetters({
         colony: 'colony',
       }),
+    },
+    methods: {
+      ...mapActions(['changeCellState']),
+      handleCellClick(rowIdx, colIdx) {
+        this.changeCellState({ rowIdx, colIdx });
+      },
     },
   };
 </script>

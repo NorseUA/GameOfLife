@@ -1,6 +1,11 @@
 <template>
   <div class="fieldRow">
-    <field-cell v-for="(cellState, idx) in row" :isAlive="cellState" :key="idx"></field-cell>
+    <field-cell
+      v-for="(cellState, idx) in row"
+      :is-alive="cellState"
+      :key="idx"
+      @click.native="handleCellClick(idx)"
+    ></field-cell>
   </div>
 </template>
 
@@ -8,13 +13,18 @@
   import FieldCell from './FieldCell';
 
   export default {
-    name: 'GameFieldCell',
+    name: 'GameFieldRow',
     components: {
       'field-cell': FieldCell,
     },
     props: {
       row: {
         type: Array,
+      },
+    },
+    methods: {
+      handleCellClick(idx) {
+        this.$emit('cellClick', idx);
       },
     },
   };

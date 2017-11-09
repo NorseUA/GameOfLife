@@ -7,6 +7,9 @@ const actions = {
   createNewEmptyColony({ commit }) {
     commit(types.COMPUTE_EMPTY_COLONY);
   },
+  changeCellState({ commit }, { rowIdx, colIdx }) {
+    commit(types.CHANGE_CELL_STATE, { rowIdx, colIdx });
+  },
 };
 
 export default actions;
