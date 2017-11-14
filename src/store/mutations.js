@@ -1,15 +1,17 @@
 /* eslint-disable no-param-reassign */
+import set from 'lodash/set';
 import {
   COMPUTE_EMPTY_COLONY,
   CHANGE_FIELD_SIZE,
   CHANGE_CELL_STATE,
+  CREATE_LIST_0F_CELLS_FOR_CHECK,
 } from './mutationsTypes';
-import createMatrix from '../helpers/createMatrix';
+import colonyService from '../services/colonyService';
 
 const mutations = {
   [COMPUTE_EMPTY_COLONY](state) {
     const { rows, columns } = state.fieldSize;
-    state.colony = createMatrix(rows, columns);
+    state.colony = colonyService.createEmptyMatrix(rows, columns);
   },
   [CHANGE_FIELD_SIZE](state, { rows, columns }) {
     const size = { ...state.fieldSize };
@@ -26,6 +28,9 @@ const mutations = {
     newColony[rowIdx] = currentRow;
 
     state.colony = newColony;
+  },
+  [CREATE_LIST_0F_CELLS_FOR_CHECK](state) {
+    state.cellsForCheck = colonyService.findInitialColonyCellsForCheck(state.colony);
   },
 };
 
