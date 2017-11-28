@@ -1,5 +1,6 @@
 import fill from 'lodash/fill';
 import get from 'lodash/get';
+import set from 'lodash/set';
 
 class ColonyService {
   createEmptyMatrix = (rowsCount, columnsCount) => {
@@ -35,9 +36,29 @@ class ColonyService {
     const clusterArray = this.reduceCluster(rowNeighbors, colNeighbors);
 
     return clusterArray.reduce((acc, address) => {
-      acc[address] = get(matrix, address);
+      if (address !== `[${rowIdx}][${colIdx}]`) {
+        acc[address] = get(matrix, address);
+      }
       return acc;
     }, {});
+  };
+
+  checkCellCluster = (cluster, targetCellStatus) => {
+    const aliveNeighboursCount = Object.keys(cluster)
+      .reduce((acc, key) => {
+        const status = get(cluster, key);
+        if (status) {
+          acc += 1; // eslint-disable-line
+        }
+
+        return acc;
+      }, 0);
+
+    if (targetCellStatus) {
+      return (aliveNeighboursCount === 2 || aliveNeighboursCount === 3);
+    }
+
+    return (aliveNeighboursCount === 3);
   };
 
   findInitialColonyCellsForCheck = (matrix) => {
@@ -47,6 +68,7 @@ class ColonyService {
       row.forEach((isAlive, colIdx) => {
         if (isAlive) {
           const cluster = this.createClusterForCheck(rowIdx, colIdx, matrix);
+          set(cluster, `[${rowIdx}][${colIdx}]`, true);
           Object.assign(targetCells, cluster);
         }
       });
@@ -54,6 +76,14 @@ class ColonyService {
 
     return targetCells;
   };
+
+  calculateNewGeneration = (cellsList, prevGeneration) => {
+    const rowsCount = get(prevGeneration, 'length') || 0;
+    const colsCount = get(prevGeneration, '[0].length') || 0;
+    const result = this.createEmptyMatrix(rowsCount, colsCount);
+
+    return result;
+  }
 }
 
 export default new ColonyService();

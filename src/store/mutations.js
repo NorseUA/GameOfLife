@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import set from 'lodash/set';
 import {
   COMPUTE_EMPTY_COLONY,
   CHANGE_FIELD_SIZE,
