@@ -80,9 +80,20 @@ class ColonyService {
   calculateNewGeneration = (cellsList, prevGeneration) => {
     const rowsCount = get(prevGeneration, 'length') || 0;
     const colsCount = get(prevGeneration, '[0].length') || 0;
-    const result = this.createEmptyMatrix(rowsCount, colsCount);
+    const nextGeneration = this.createEmptyMatrix(rowsCount, colsCount);
 
-    return result;
+    Object.keys(cellsList).forEach((address) => {
+      const [rowIdx, colIdx] = address.slice(1, -1).split('][');
+      const cluster = this.createClusterForCheck(+rowIdx, +colIdx, prevGeneration);
+      const cellStatus = get(cellsList, address);
+      const newCellStatus = this.checkCellCluster(cluster, cellStatus);
+
+      if (newCellStatus !== cellStatus) {
+        set(nextGeneration, address, newCellStatus)
+      }
+    });
+
+    return nextGeneration;
   }
 }
 
