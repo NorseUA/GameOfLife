@@ -88,9 +88,7 @@ class ColonyService {
       const cellStatus = get(cellsList, address);
       const newCellStatus = this.checkCellCluster(cluster, cellStatus);
 
-      if (newCellStatus !== cellStatus) {
-        set(nextGeneration, address, newCellStatus)
-      }
+      set(nextGeneration, address, newCellStatus);
     });
 
     return nextGeneration;
