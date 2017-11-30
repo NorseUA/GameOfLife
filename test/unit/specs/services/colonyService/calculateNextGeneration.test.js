@@ -1,35 +1,59 @@
 import colonyService from '../../../../../src/services/colonyService';
-import mockLists from '../../mocks/calculateNextGeneration/mockLists';
-import mockResults from '../../mocks/calculateNextGeneration/mockResults';
-import mockGenerations from '../../mocks/calculateNextGeneration/mockGenerations';
+import mockPreviousLists from '../../mocks/calculateNextGeneration/mockPreviousLists';
+import mockNextLists from '../../mocks/calculateNextGeneration/mockNextLists';
+import mockPreviousGenerations from '../../mocks/calculateNextGeneration/mockPreviousGenerations';
+import mockNextGenerations from '../../mocks/calculateNextGeneration/mockNextGenerations';
 
-describe('Colony service', () => {
-  it('should calculate new generation by list with cells in the middle of field', () => {
-    const { calculateNewGeneration } = colonyService;
+describe('Calculation of new generation by list', () => {
+  const { calculateNewGeneration } = colonyService;
 
-    expect(
-      calculateNewGeneration(mockLists.oneLiveCell, mockGenerations.oneLiveCell),
-    )
-      .to.deep.equal(mockResults.oneLiveCell);
+  it('with one live cell', () => {
+    const mockType = 'oneLiveCell';
+    const prevList = mockPreviousLists[mockType];
+    const prevGen = mockPreviousGenerations[mockType];
+    const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(
-      calculateNewGeneration(mockLists.threeLiveCellsCorner, mockGenerations.threeLiveCellsCorner),
-      )
-      .to.deep.equal(mockResults.threeLiveCellsCorner);
+    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
+    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+  });
 
-    expect(
-      calculateNewGeneration(mockLists.threeLiveCellsInLine, mockGenerations.threeLiveCellsInLine),
-      )
-      .to.deep.equal(mockResults.threeLiveCellsInLine);
+  it('with tree live cells like corner', () => {
+    const mockType = 'threeLiveCellsCorner';
+    const prevList = mockPreviousLists[mockType];
+    const prevGen = mockPreviousGenerations[mockType];
+    const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(
-      calculateNewGeneration(mockLists.threeLiveCellsApart, mockGenerations.threeLiveCellsApart),
-      )
-      .to.deep.equal(mockResults.threeLiveCellsApart);
+    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
+    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+  });
 
-    expect(
-      calculateNewGeneration(mockLists.liveCellsInCross, mockGenerations.liveCellsInCross),
-      )
-      .to.deep.equal(mockResults.liveCellsInCross);
+  it('with three live cells in line', () => {
+    const mockType = 'threeLiveCellsInLine';
+    const prevList = mockPreviousLists[mockType];
+    const prevGen = mockPreviousGenerations[mockType];
+    const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
+
+    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
+    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+  });
+
+  it('with three live cells apart', () => {
+    const mockType = 'threeLiveCellsApart';
+    const prevList = mockPreviousLists[mockType];
+    const prevGen = mockPreviousGenerations[mockType];
+    const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
+
+    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
+    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+  });
+
+  it('with five live cells in cross', () => {
+    const mockType = 'liveCellsInCross';
+    const prevList = mockPreviousLists[mockType];
+    const prevGen = mockPreviousGenerations[mockType];
+    const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
+
+    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
+    expect(nextList).to.deep.equal(mockNextLists[mockType]);
   });
 });

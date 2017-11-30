@@ -77,21 +77,39 @@ class ColonyService {
     return targetCells;
   };
 
-  calculateNewGeneration = (cellsList, prevGeneration) => {
+  calculateNewGeneration = (prevList, prevGeneration) => {
     const rowsCount = get(prevGeneration, 'length') || 0;
     const colsCount = get(prevGeneration, '[0].length') || 0;
     const nextGeneration = this.createEmptyMatrix(rowsCount, colsCount);
+    const nextList = {};
+    const changedCells = {};
 
-    Object.keys(cellsList).forEach((address) => {
+    Object.keys(prevList).forEach((address) => {
       const [rowIdx, colIdx] = address.slice(1, -1).split('][');
       const cluster = this.createClusterForCheck(+rowIdx, +colIdx, prevGeneration);
-      const cellStatus = get(cellsList, address);
-      const newCellStatus = this.checkCellCluster(cluster, cellStatus);
+      const prevGenCellStatus = get(prevList, address);
+      const nextGenCellStatus = this.checkCellCluster(cluster, prevGenCellStatus);
 
-      set(nextGeneration, address, newCellStatus);
+      set(nextGeneration, address, nextGenCellStatus);
+
+      if (nextGenCellStatus !== prevGenCellStatus) {
+        changedCells[address] = nextGenCellStatus;
+      }
     });
 
-    return nextGeneration;
+    Object.keys(changedCells).forEach((address) => {
+      const [rowIdx, colIdx] = address.slice(1, -1).split('][');
+      const cluster = this.createClusterForCheck(+rowIdx, +colIdx, nextGeneration);
+
+      Object.assign(nextList, cluster);
+    });
+
+    Object.assign(nextList, changedCells);
+
+    return {
+      nextGeneration,
+      nextList,
+    };
   }
 }
 
