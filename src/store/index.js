@@ -13,6 +13,7 @@ const store = new Vuex.Store({
       columns: 20,
     },
     colony: [],
+    listForCheck: {},
   },
   actions,
   getters,

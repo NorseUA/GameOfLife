@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 
 class ColonyService {
-  createEmptyMatrix = (rowsCount, columnsCount) => {
+  createEmptyMatrix = (rowsCount = 0, columnsCount = 0) => {
     const matrix = [];
 
     for (let idx = 0; idx < rowsCount; idx += 1) {
@@ -14,7 +14,9 @@ class ColonyService {
     return matrix;
   };
 
-  getCellNeighbors = (idx, arrayLength) => [
+  copyMatrix = matrix => matrix.map(item => [...item]);
+
+  getCellNeighbors = (idx, arrayLength = 0) => [
     (((idx - 1) + arrayLength) % arrayLength),
     idx,
     ((idx + 1) % arrayLength),
@@ -27,8 +29,8 @@ class ColonyService {
     }, []);
 
   createClusterForCheck = (rowIdx, colIdx, matrix) => {
-    const rowsCount = get(matrix, 'length') || 0;
-    const colsCount = get(matrix, '[0].length') || 0;
+    const rowsCount = get(matrix, 'length');
+    const colsCount = get(matrix, '[0].length');
 
     const rowNeighbors = this.getCellNeighbors(rowIdx, rowsCount);
     const colNeighbors = this.getCellNeighbors(colIdx, colsCount);
@@ -61,14 +63,14 @@ class ColonyService {
     return (aliveNeighboursCount === 3);
   };
 
-  findInitialColonyCellsForCheck = (matrix) => {
+  createListOfCellsForCheck = (matrix) => {
     const targetCells = {};
 
     matrix.forEach((row, rowIdx) => {
       row.forEach((isAlive, colIdx) => {
         if (isAlive) {
           const cluster = this.createClusterForCheck(rowIdx, colIdx, matrix);
-          set(cluster, `[${rowIdx}][${colIdx}]`, true);
+          cluster[`[${rowIdx}][${colIdx}]`] = true;
           Object.assign(targetCells, cluster);
         }
       });
@@ -78,9 +80,7 @@ class ColonyService {
   };
 
   calculateNewGeneration = (prevList, prevGeneration) => {
-    const rowsCount = get(prevGeneration, 'length') || 0;
-    const colsCount = get(prevGeneration, '[0].length') || 0;
-    const nextGeneration = this.createEmptyMatrix(rowsCount, colsCount);
+    const nextGeneration = this.copyMatrix(prevGeneration);
     const nextList = {};
     const changedCells = {};
 
@@ -90,9 +90,8 @@ class ColonyService {
       const prevGenCellStatus = get(prevList, address);
       const nextGenCellStatus = this.checkCellCluster(cluster, prevGenCellStatus);
 
-      set(nextGeneration, address, nextGenCellStatus);
-
       if (nextGenCellStatus !== prevGenCellStatus) {
+        set(nextGeneration, address, nextGenCellStatus);
         changedCells[address] = nextGenCellStatus;
       }
     });

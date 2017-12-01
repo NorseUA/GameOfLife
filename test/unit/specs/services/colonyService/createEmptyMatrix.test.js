@@ -36,4 +36,10 @@ describe('Create empty matrix', () => {
     expect(matrix.length).to.equal(7);
     expect(matrix[0]).to.deep.equal([]);
   });
+
+  it('should return empty array', () => {
+    const matrix = createEmptyMatrix(0, 0);
+
+    expect(matrix).to.deep.equal([]);
+  });
 });
