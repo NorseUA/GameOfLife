@@ -2,7 +2,9 @@
   <div class="container">
     <div></div>
     <game-field></game-field>
-    <button @click="calculateNewGeneration">Next</button>
+    <button @click="startLife">Start</button>
+    <button @click="stopLife">Stop</button>
+    <button @click="calculateNewGeneration">Next Generation</button>
   </div>
 </template>
 
@@ -19,7 +21,11 @@
       'game-field': GameField,
     },
     methods: {
-      ...mapActions(['calculateNewGeneration']),
+      ...mapActions([
+        'calculateNewGeneration',
+        'startLife',
+        'stopLife',
+      ]),
     },
   };
 </script>

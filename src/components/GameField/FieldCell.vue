@@ -16,12 +16,13 @@
 <style scoped>
   .cell {
     cursor: pointer;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     background-color: #fff375;
-    border: 1px solid #ccc;
+    border: 1px solid #e0e0e0;
+    transition-duration: 100ms;
   }
   .alive {
-    background-color: #27ff02;
+    background-color: #1bac01;
   }
 </style>

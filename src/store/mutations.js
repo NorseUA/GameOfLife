@@ -5,6 +5,8 @@ import {
   CHANGE_CELL_STATE,
   CREATE_LIST_0F_CELLS_FOR_CHECK,
   CALCULATE_NEXT_GENERATION,
+  START_LIFE,
+  STOP_LIFE,
 } from './mutationsTypes';
 import colonyService from '../services/colonyService';
 
@@ -46,6 +48,12 @@ const mutations = {
 
     state.colony = nextGeneration;
     state.listForCheck = nextList;
+  },
+  [START_LIFE](state, { intervalId }) {
+    state.intervalId = intervalId;
+  },
+  [STOP_LIFE](state) {
+    state.intervalId = null;
   },
 };
 

@@ -10,14 +10,23 @@ const actions = {
   changeCellState({ commit }, { rowIdx, colIdx }) {
     commit(types.CHANGE_CELL_STATE, { rowIdx, colIdx });
   },
-  // createListOfCellsForCheck({ commit }) {
-  //   return new Promise((resolve) => {
-  //     commit(types.CREATE_LIST_0F_CELLS_FOR_CHECK);
-  //     resolve();
-  //   });
-  // },
-  calculateNewGeneration({ commit }) {
-    commit(types.CALCULATE_NEXT_GENERATION);
+  calculateNewGeneration({ dispatch, commit, state }) {
+    if (Object.keys(state.listForCheck).length === 0) {
+      dispatch('stopLife');
+    } else {
+      commit(types.CALCULATE_NEXT_GENERATION);
+    }
+  },
+  startLife({ dispatch, commit }, { speed = 300 }) {
+    const intervalId = setInterval(() => {
+      dispatch('calculateNewGeneration');
+    }, speed);
+
+    commit(types.START_LIFE, { intervalId });
+  },
+  stopLife({ commit, state }) {
+    clearInterval(state.intervalId);
+    commit(types.STOP_LIFE);
   },
 };
 
