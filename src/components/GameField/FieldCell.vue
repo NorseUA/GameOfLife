@@ -16,13 +16,26 @@
 <style scoped>
   .cell {
     cursor: pointer;
-    width: 10px;
-    height: 10px;
-    background-color: #fff375;
-    border: 1px solid #e0e0e0;
-    transition-duration: 100ms;
+    width: 15px;
+    height: 15px;
+    margin: -1px;
+    background-color: #ffe436;
+    border: 1px solid #adadad;
+    transition-duration: 250ms;
+    border-radius: 5px;
   }
+
+  .cell:hover {
+    background-color: #fffa5f;
+  }
+
   .alive {
+    background-color: #1fec01;
+    transition-duration: 250ms;
+  }
+
+  .alive:hover {
     background-color: #1bac01;
   }
+
 </style>

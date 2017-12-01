@@ -24,5 +24,9 @@
 </script>
 
 <style scoped>
+  .mainMenu {
+    text-align: center;
+    font-size: 29px;
+  }
 
 </style>

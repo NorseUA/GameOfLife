@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    Hola
     <main-menu />
   </div>
 </template>

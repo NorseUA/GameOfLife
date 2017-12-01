@@ -9,8 +9,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     fieldSize: {
-      rows: 10,
-      columns: 20,
+      rows: 30,
+      columns: 30,
     },
     colony: [],
     listForCheck: {},

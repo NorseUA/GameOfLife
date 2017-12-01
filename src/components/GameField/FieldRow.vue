@@ -33,5 +33,6 @@
 <style scoped>
   .fieldRow {
     display: flex;
+    justify-content: center;
   }
 </style>

@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-    <div></div>
-    <game-field></game-field>
-    <button @click="startLife">Start</button>
-    <button @click="stopLife">Stop</button>
-    <button @click="calculateNewGeneration">Next Generation</button>
+    <div class="gameField">
+      <game-field></game-field>
+      <div class="controls">
+        <button class="default" @click="startLife">Start</button>
+        <button class="default" @click="stopLife">Stop</button>
+        <button class="default" @click="calculateNewGeneration">Next Generation</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -31,5 +34,7 @@
 </script>
 
 <style scoped>
-
+  .controls {
+    text-align: center;
+  }
 </style>

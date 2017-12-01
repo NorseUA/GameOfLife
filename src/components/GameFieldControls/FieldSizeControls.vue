@@ -4,6 +4,7 @@
       <span>{{ label }}</span>
       <input
         min="1"
+        max="70"
         type="number"
         :value="initialSize"
         @change="changeFieldSize"
