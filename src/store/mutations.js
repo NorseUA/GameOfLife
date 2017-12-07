@@ -51,9 +51,11 @@ const mutations = {
   },
   [START_LIFE](state, { intervalId }) {
     state.intervalId = intervalId;
+    state.colonyIsAlive = true;
   },
   [STOP_LIFE](state) {
     state.intervalId = null;
+    state.colonyIsAlive = false;
   },
 };
 

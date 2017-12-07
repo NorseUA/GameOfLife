@@ -17,7 +17,7 @@ export default {
     src: url('../static/fonts/funkyMother.otf');
   }
   html {
-    background-color: rgba(151, 255, 98, 0.3);
+    /*background-color: rgba(151, 255, 98, 0.3);*/
   }
   #app {
     font-family: FunkyMother;

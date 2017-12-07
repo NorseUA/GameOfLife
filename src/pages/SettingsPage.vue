@@ -39,9 +39,9 @@
       };
     },
     computed: {
-      ...mapGetters({
-        fieldSize: 'fieldSize',
-      }),
+      ...mapGetters([
+        'fieldSize',
+      ]),
     },
     methods: {
       applySettings() {

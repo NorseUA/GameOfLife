@@ -14,6 +14,7 @@ const store = new Vuex.Store({
     },
     colony: [],
     listForCheck: {},
+    colonyIsAlive: false,
   },
   actions,
   getters,

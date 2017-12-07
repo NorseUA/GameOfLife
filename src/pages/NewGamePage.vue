@@ -3,8 +3,9 @@
     <div class="gameField">
       <game-field></game-field>
       <div class="controls">
-        <button class="default" @click="startLife">Start</button>
-        <button class="default" @click="stopLife">Stop</button>
+        <button class="default" @click="goBack">Back</button>
+        <button v-if="colonyIsAlive" class="default" @click="stopLife">Stop</button>
+        <button v-else="colonyIsAlive" class="default" @click="startLife">Start</button>
         <button class="default" @click="calculateNewGeneration">Next Generation</button>
       </div>
     </div>
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
   import { GameField } from '../components';
 
   export default {
@@ -23,7 +24,15 @@
     components: {
       'game-field': GameField,
     },
+    computed: {
+      ...mapGetters([
+        'colonyIsAlive',
+      ]),
+    },
     methods: {
+      goBack() {
+        this.$router.push('/');
+      },
       ...mapActions([
         'calculateNewGeneration',
         'startLife',
