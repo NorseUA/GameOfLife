@@ -31,6 +31,7 @@
     },
     methods: {
       goBack() {
+        this.stopLife();
         this.$router.push('/');
       },
       ...mapActions([

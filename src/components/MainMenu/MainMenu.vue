@@ -25,8 +25,12 @@
 
 <style scoped>
   .mainMenu {
-    text-align: center;
-    font-size: 29px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+    justify-content: center;
+    align-items: center;
   }
 
 </style>

@@ -17,7 +17,7 @@ export default {
     src: url('../static/fonts/funkyMother.otf');
   }
   html {
-    /*background-color: rgba(151, 255, 98, 0.3);*/
+    background-color: rgba(151, 255, 98, 0.3);
   }
   #app {
     font-family: FunkyMother;
@@ -29,7 +29,6 @@ export default {
   button.default {
     font-family: FunkyMother;
     font-size: 29px;
-    /*border: 1px solid #00a6ee;*/
     border: none;
     color: #00a6ee;
     background: none;
@@ -48,9 +47,9 @@ export default {
 <style scoped>
   .title {
     text-align: center;
-    /*font-family: FunkyMother;*/
     font-weight: initial;
     color: #59e116;
-    font-size: 40px;
+    font-size: 55px;
+    margin: 30px 0;
   }
 </style>

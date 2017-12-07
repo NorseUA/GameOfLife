@@ -23,6 +23,7 @@
     border: 1px solid #adadad;
     transition-duration: 250ms;
     border-radius: 5px;
+    /*background: radial-gradient(circle at 33% 33%, #ffe436, #000);*/
   }
 
   .cell:hover {
@@ -32,6 +33,7 @@
   .alive {
     background-color: #1fec01;
     transition-duration: 250ms;
+    /*background: radial-gradient(circle at 33% 33%, #1fec01, #000);*/
   }
 
   .alive:hover {

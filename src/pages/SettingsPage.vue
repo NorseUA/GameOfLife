@@ -1,24 +1,27 @@
 <template>
   <div class="container">
-    <h2>Settings</h2>
-    <div>
-      <span>Field size</span>
-      <size-control
-        :label="'Rows:'"
-        :metricType="'rows'"
-        :initialSize="fieldSize.rows"
-        @changeSize="changeFieldSize"
-      ></size-control>
-      <size-control
-        :label="'Columns:'"
-        :metricType="'columns'"
-        :initialSize="fieldSize.columns"
-        @changeSize="changeFieldSize"
-      ></size-control>
+    <div class="title">Settings</div>
+    <div class="controls">
+      <div class="controlLabel">Field size</div>
       <div>
-        <button @click="applySettings">Save</button>
-        <button @click="cancelSettings">Cancel</button>
+        <size-control
+          :metricType="'rows'"
+          :initialSize="fieldSize.rows"
+          @changeSize="changeFieldSize"
+        ></size-control>
+        <span>x</span>
+        <size-control
+          :metricType="'columns'"
+          :initialSize="fieldSize.columns"
+          @changeSize="changeFieldSize"
+        ></size-control>
       </div>
+      <div class="controlLabel">Speed</div>
+
+    </div>
+    <div>
+      <button class="default" @click="applySettings">Save</button>
+      <button class="default" @click="cancelSettings">Cancel</button>
     </div>
   </div>
 </template>
@@ -62,5 +65,27 @@
 </script>
 
 <style scoped>
+  .container {
+    text-align: center;
+    color: #00a6ee;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    justify-content: space-around;
+    align-items: center;
+  }
 
+  .title {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+
+  .controls {
+    flex: 1;
+  }
+
+  .controlLabel {
+    margin: 15px 0;
+  }
 </style>
