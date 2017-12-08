@@ -19,11 +19,15 @@ export default {
   html {
     background-color: rgba(151, 255, 98, 0.3);
   }
+  body {
+    margin: 0;
+  }
   #app {
     font-family: FunkyMother;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
+    text-shadow: 2px 1px 5px #000, 0 0 1em #fd0;
   }
 
   button.default {
@@ -36,6 +40,7 @@ export default {
     padding: 10px 25px;
     cursor: pointer;
     outline: none;
+    text-shadow: 2px 1px 5px #000, 0 0 1em #fd0;
   }
 
   button.default:hover{

@@ -48,8 +48,7 @@
     font-size: 30px;
     display: flex;
     flex-direction: column;
-    min-height: 500px;
-    justify-content: space-around;
+    min-height: calc(100vh - 179px);
     align-items: center;
   }
 
