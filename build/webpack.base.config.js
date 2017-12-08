@@ -5,6 +5,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
   devtool: isProd
@@ -16,7 +19,10 @@ module.exports = {
     filename: '[name].[chunkhash].js'
   },
   resolve: {
+    extensions: ['.js', '.vue', '.json'],
     alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
       'public': path.resolve(__dirname, '../public'),
       'static': path.resolve(__dirname, '../static'),
     }
