@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import {
   COMPUTE_EMPTY_COLONY,
-  CHANGE_FIELD_SIZE,
+  CHANGE_SETTINGS,
   CHANGE_CELL_STATE,
   CREATE_LIST_0F_CELLS_FOR_CHECK,
   CALCULATE_NEXT_GENERATION,
@@ -15,11 +15,12 @@ const mutations = {
     const { rows, columns } = state.fieldSize;
     state.colony = colonyService.createEmptyMatrix(rows, columns);
   },
-  [CHANGE_FIELD_SIZE](state, { rows, columns }) {
+  [CHANGE_SETTINGS](state, { rows, columns, speed }) {
     const size = { ...state.fieldSize };
     size.rows = rows || size.rows;
     size.columns = columns || size.columns;
     state.fieldSize = size;
+    state.speedOfGame = speed || state.speedOfGame;
   },
   [CHANGE_CELL_STATE](state, { rowIdx, colIdx }) {
     const newColony = [...state.colony];

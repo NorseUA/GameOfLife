@@ -1,7 +1,7 @@
 <template>
   <input
     min="1"
-    max="70"
+    max="fieldSizeConfig.maxValue"
     type="number"
     :value="initialSize"
     @click="changeFieldSize"
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  import { fieldSizeConfig } from '../../constants';
+
   export default {
     name: 'FieldSizeControls',
     props: {
@@ -22,8 +24,8 @@
     },
     methods: {
       changeFieldSize(evt) {
-        const value = ((+evt.target.value % 70) + 10);
-        evt.target.value = value; // eslint-disable-line
+        const { maxValue, step } = fieldSizeConfig;
+        const value = ((+evt.target.value % maxValue) + step);
         this.$emit('changeSize', {
           metricType: this.metricType,
           value,

@@ -1,8 +1,8 @@
 import types from './mutationsTypes';
 
 const actions = {
-  changeFieldSize({ commit }, { rows, columns }) {
-    commit(types.CHANGE_FIELD_SIZE, { rows, columns });
+  changeSettings({ commit }, { rows, columns, speed }) {
+    commit(types.CHANGE_SETTINGS, { rows, columns, speed });
   },
   createNewEmptyColony({ commit }) {
     commit(types.COMPUTE_EMPTY_COLONY);
@@ -17,10 +17,10 @@ const actions = {
       commit(types.CALCULATE_NEXT_GENERATION);
     }
   },
-  startLife({ dispatch, commit }, { speed = 300 }) {
+  startLife({ dispatch, commit, state }) {
     const intervalId = setInterval(() => {
       dispatch('calculateNewGeneration');
-    }, speed);
+    }, state.speedOfGame);
 
     commit(types.START_LIFE, { intervalId });
   },

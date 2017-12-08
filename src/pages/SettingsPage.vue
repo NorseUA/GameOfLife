@@ -1,65 +1,42 @@
 <template>
   <div class="container">
     <div class="title">Settings</div>
-    <div class="controls">
-      <div class="controlLabel">Field size</div>
-      <div>
-        <size-control
-          :metricType="'rows'"
-          :initialSize="fieldSize.rows"
-          @changeSize="changeFieldSize"
-        ></size-control>
-        <span>x</span>
-        <size-control
-          :metricType="'columns'"
-          :initialSize="fieldSize.columns"
-          @changeSize="changeFieldSize"
-        ></size-control>
-      </div>
-      <div class="controlLabel">Speed</div>
-
-    </div>
-    <div>
-      <button class="default" @click="applySettings">Save</button>
-      <button class="default" @click="cancelSettings">Cancel</button>
-    </div>
+    <settings
+      :initialRows="fieldSize.rows"
+      :initialColumns="fieldSize.columns"
+      :initialSpeed="speedOfGame"
+      :applySettings="applySettings"
+      :cancelSettings="cancelSettings"
+    ></settings>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
-  import { FieldSizeControls } from '../components';
+  import { mapGetters, mapActions } from 'vuex';
+  import { Settings } from '../components';
 
   export default {
     name: 'SettingsPage',
     components: {
-      'size-control': FieldSizeControls,
-    },
-    data() {
-      return {
-        rows: 0,
-        columns: 0,
-      };
+      settings: Settings,
     },
     computed: {
       ...mapGetters([
         'fieldSize',
+        'speedOfGame',
       ]),
     },
     methods: {
-      applySettings() {
-        this.$store.dispatch('changeFieldSize', {
-          rows: this.rows,
-          columns: this.columns,
-        });
+      applySettings(settings) {
+        this.changeSettings(settings);
         this.$router.push('/');
       },
       cancelSettings() {
         this.$router.push('/');
       },
-      changeFieldSize({ metricType, value }) {
-        this[metricType] = value;
-      },
+      ...mapActions([
+        'changeSettings',
+      ]),
     },
   };
 </script>
@@ -79,13 +56,5 @@
   .title {
     font-size: 35px;
     margin-bottom: 30px;
-  }
-
-  .controls {
-    flex: 1;
-  }
-
-  .controlLabel {
-    margin: 15px 0;
   }
 </style>
