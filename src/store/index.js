@@ -7,20 +7,22 @@ import { defaultSettings } from '../constants';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
-  state: {
-    fieldSize: {
-      rows: defaultSettings.rows,
-      columns: defaultSettings.columns,
+function createStore() {
+  return new Vuex.Store({
+    state: {
+      fieldSize: {
+        rows: defaultSettings.rows,
+        columns: defaultSettings.columns,
+      },
+      colony: [],
+      listForCheck: {},
+      colonyIsAlive: false,
+      speedOfGame: defaultSettings.speed,
     },
-    colony: [],
-    listForCheck: {},
-    colonyIsAlive: false,
-    speedOfGame: defaultSettings.speed,
-  },
-  actions,
-  getters,
-  mutations,
-});
+    actions,
+    getters,
+    mutations,
+  });
+}
 
-export default store;
+export default createStore;
