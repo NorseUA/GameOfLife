@@ -19,7 +19,7 @@
   export default {
     name: 'NewGamePage',
     created() {
-      this.$store.dispatch('createNewEmptyColony');
+      this.createNewEmptyColony();
     },
     components: {
       'game-field': GameField,
@@ -35,6 +35,7 @@
         this.$router.push('/');
       },
       ...mapActions([
+        'createNewEmptyColony',
         'calculateNewGeneration',
         'startLife',
         'stopLife',

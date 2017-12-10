@@ -11,9 +11,9 @@ import {
 import colonyService from '../services/colonyService';
 
 const mutations = {
-  [COMPUTE_EMPTY_COLONY](state) {
+  async [COMPUTE_EMPTY_COLONY](state) {
     const { rows, columns } = state.fieldSize;
-    state.colony = colonyService.createEmptyMatrix(rows, columns);
+    state.colony = await colonyService.createEmptyMatrix(rows, columns);
   },
   [CHANGE_SETTINGS](state, { rows, columns, speed }) {
     const size = { ...state.fieldSize };
