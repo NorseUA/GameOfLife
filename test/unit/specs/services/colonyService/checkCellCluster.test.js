@@ -6,35 +6,35 @@ describe('Check cell cluster', () => {
 
   it('should return new cell status for live cell', () => {
     expect(checkCellCluster(mockClusters.cellWithNoNeighbor, true))
-      .to.equal(false);
+      .toEqual(false);
 
     expect(checkCellCluster(mockClusters.cellWithOneNeighbor, true))
-      .to.equal(false);
+      .toEqual(false);
 
     expect(checkCellCluster(mockClusters.cellWithTwoNeighbor, true))
-      .to.equal(true);
+      .toEqual(true);
 
     expect(checkCellCluster(mockClusters.cellWithThreeNeighbor, true))
-      .to.equal(true);
+      .toEqual(true);
 
     expect(checkCellCluster(mockClusters.cellWithFourNeighbor, true))
-      .to.equal(false);
+      .toEqual(false);
   });
 
   it('should return new cell status for dead cell', () => {
     expect(checkCellCluster(mockClusters.cellWithNoNeighbor, false))
-      .to.equal(false);
+      .toEqual(false);
 
     expect(checkCellCluster(mockClusters.cellWithOneNeighbor, false))
-      .to.equal(false);
+      .toEqual(false);
 
     expect(checkCellCluster(mockClusters.cellWithTwoNeighbor, false))
-      .to.equal(false);
+      .toEqual(false);
 
     expect(checkCellCluster(mockClusters.cellWithThreeNeighbor, false))
-      .to.equal(true);
+      .toEqual(true);
 
     expect(checkCellCluster(mockClusters.cellWithFourNeighbor, false))
-      .to.equal(false);
+      .toEqual(false);
   });
 });

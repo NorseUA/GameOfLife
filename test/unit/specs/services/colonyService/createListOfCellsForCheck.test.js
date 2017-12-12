@@ -11,7 +11,7 @@ describe('Create list of cells by matrix', () => {
     const expectedList = mockPreviousLists[mockType];
     const resultList = createListOfCellsForCheck(generation);
 
-    expect(resultList).to.deep.equal(expectedList);
+    expect(resultList).toEqual(expectedList);
   });
 
   it('with tree live cells like corner', () => {
@@ -20,7 +20,7 @@ describe('Create list of cells by matrix', () => {
     const expectedList = mockPreviousLists[mockType];
     const resultList = createListOfCellsForCheck(generation);
 
-    expect(resultList).to.deep.equal(expectedList);
+    expect(resultList).toEqual(expectedList);
   });
 
   it('with three live cells in line', () => {
@@ -29,7 +29,7 @@ describe('Create list of cells by matrix', () => {
     const expectedList = mockPreviousLists[mockType];
     const resultList = createListOfCellsForCheck(generation);
 
-    expect(resultList).to.deep.equal(expectedList);
+    expect(resultList).toEqual(expectedList);
   });
 
   it('with three live cells apart', () => {
@@ -38,7 +38,7 @@ describe('Create list of cells by matrix', () => {
     const expectedList = mockPreviousLists[mockType];
     const resultList = createListOfCellsForCheck(generation);
 
-    expect(resultList).to.deep.equal(expectedList);
+    expect(resultList).toEqual(expectedList);
   });
 
   it('with five live cells in cross', () => {
@@ -47,6 +47,6 @@ describe('Create list of cells by matrix', () => {
     const expectedList = mockPreviousLists[mockType];
     const resultList = createListOfCellsForCheck(generation);
 
-    expect(resultList).to.deep.equal(expectedList);
+    expect(resultList).toEqual(expectedList);
   });
 });

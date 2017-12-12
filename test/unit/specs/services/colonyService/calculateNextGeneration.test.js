@@ -13,8 +13,8 @@ describe('Calculation of new generation by list', () => {
     const prevGen = mockPreviousGenerations[mockType];
     const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
-    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+    expect(nextGeneration).toEqual(mockNextGenerations[mockType]);
+    expect(nextList).toEqual(mockNextLists[mockType]);
   });
 
   it('with tree live cells like corner', () => {
@@ -23,8 +23,8 @@ describe('Calculation of new generation by list', () => {
     const prevGen = mockPreviousGenerations[mockType];
     const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
-    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+    expect(nextGeneration).toEqual(mockNextGenerations[mockType]);
+    expect(nextList).toEqual(mockNextLists[mockType]);
   });
 
   it('with three live cells in line', () => {
@@ -33,8 +33,8 @@ describe('Calculation of new generation by list', () => {
     const prevGen = mockPreviousGenerations[mockType];
     const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
-    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+    expect(nextGeneration).toEqual(mockNextGenerations[mockType]);
+    expect(nextList).toEqual(mockNextLists[mockType]);
   });
 
   it('with three live cells apart', () => {
@@ -43,8 +43,8 @@ describe('Calculation of new generation by list', () => {
     const prevGen = mockPreviousGenerations[mockType];
     const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
-    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+    expect(nextGeneration).toEqual(mockNextGenerations[mockType]);
+    expect(nextList).toEqual(mockNextLists[mockType]);
   });
 
   it('with five live cells in cross', () => {
@@ -53,7 +53,7 @@ describe('Calculation of new generation by list', () => {
     const prevGen = mockPreviousGenerations[mockType];
     const { nextGeneration, nextList } = calculateNewGeneration(prevList, prevGen);
 
-    expect(nextGeneration).to.deep.equal(mockNextGenerations[mockType]);
-    expect(nextList).to.deep.equal(mockNextLists[mockType]);
+    expect(nextGeneration).toEqual(mockNextGenerations[mockType]);
+    expect(nextList).toEqual(mockNextLists[mockType]);
   });
 });
