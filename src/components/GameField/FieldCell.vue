@@ -40,4 +40,11 @@
     background-color: #1bac01;
   }
 
+  @media screen and (max-width: 767px) {
+    .cell {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
 </style>
