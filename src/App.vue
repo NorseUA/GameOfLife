@@ -17,7 +17,7 @@ export default {
     src: url('../static/fonts/funkyMother.otf');
   }
   html {
-    background-color: rgba(151, 255, 98, 0.3);
+    /*background-color: rgba(151, 255, 98, 0.3);*/
   }
   body {
     margin: 0;
@@ -34,7 +34,7 @@ export default {
     font-family: FunkyMother;
     font-size: 29px;
     border: none;
-    color: #00a6ee;
+    color: #f2f3f5;
     background: none;
     border-radius: 3px;
     padding: 10px 25px;
