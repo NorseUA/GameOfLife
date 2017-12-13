@@ -19,8 +19,8 @@
     width: 15px;
     height: 15px;
     margin: -1px;
-    background-color: #ffe436;
-    border: 1px solid #adadad;
+    background-color: #fd0;
+    border: 1px solid rgba(173, 173, 173, 0.75);
     transition-duration: 250ms;
     border-radius: 5px;
     /*background: radial-gradient(circle at 33% 33%, #ffe436, #000);*/
@@ -31,7 +31,7 @@
   }
 
   .alive {
-    background-color: #1fec01;
+    background-color: #1ccd01;
     transition-duration: 250ms;
     /*background: radial-gradient(circle at 33% 33%, #1fec01, #000);*/
   }

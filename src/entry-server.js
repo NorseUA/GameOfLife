@@ -22,10 +22,13 @@ export default context => {
 
     // set router's location
     router.push(url);
+
+    // set initial state
     if (context.isMobile) {
       store.state.fieldSize = mobileDefaultFieldSettings;
     }
     store.state.isMobile = context.isMobile;
+
     // wait until router has resolved possible async hooks
     router.onReady(() => {
       const matchedComponents = router.getMatchedComponents();

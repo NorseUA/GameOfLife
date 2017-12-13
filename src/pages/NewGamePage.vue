@@ -3,7 +3,7 @@
     <div class="gameField">
       <game-field></game-field>
       <div class="controls">
-        <button class="default" @click="goBack">Back</button>
+        <button class="default" @click="goBack">Menu</button>
         <button v-if="colonyIsAlive" class="default" @click="stopLife">Stop</button>
         <button v-else="colonyIsAlive" class="default" @click="startLife">Start</button>
         <button class="default" @click="calculateNewGeneration">Next Generation</button>

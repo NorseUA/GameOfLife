@@ -36,5 +36,6 @@
   .control {
     cursor: pointer;
     user-select: none;
+    font-size: 35px;
   }
 </style>

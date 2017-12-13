@@ -16,6 +16,10 @@ export default {
     font-family: 'FunkyMother';
     src: url('../static/fonts/funkyMother.otf');
   }
+  @font-face{
+    font-family: 'Sillyheart';
+    src: url('../static/fonts/sillyheart.regular.otf');
+  }
   html {
     background-color: rgba(255, 205, 0, 0.51);
   }

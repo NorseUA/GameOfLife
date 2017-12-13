@@ -102,10 +102,10 @@
   .controls {
     color: #1adf08;
   }
+
   .controlLabel {
     margin: 25px 0 10px;
     color: #fd0;
-
   }
 
   .buttons {

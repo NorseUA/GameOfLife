@@ -40,15 +40,17 @@
 
 <style scoped>
   input {
+    font-family: 'Sillyheart';
     cursor: pointer;
     border: none;
     background: none;
     outline: none;
     user-select: none;
     color: transparent;
-    text-shadow: 0 0 0 #1adf08;
-    font-size: 25px;
-    width: 30px;
+    text-shadow: 0 0 0 #1adf08, 2px 1px 5px #000;
+    font-size: 40px;
+    width: 60px;
+    text-align: center;
   }
 
   input[type="number"]::-webkit-outer-spin-button,
