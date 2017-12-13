@@ -6,12 +6,16 @@
         <size-control
           :metricType="'rows'"
           :initialSize="rows"
+          :maxValue="fieldSizeConfig.maxValue"
+          :step="fieldSizeConfig.step"
           @changeSize="changeFieldSize"
         ></size-control>
         <span>x</span>
         <size-control
           :metricType="'columns'"
           :initialSize="columns"
+          :maxValue="fieldSizeConfig.maxValue"
+          :step="fieldSizeConfig.step"
           @changeSize="changeFieldSize"
         ></size-control>
       </div>
@@ -51,6 +55,9 @@
       },
       initialSpeed: {
         type: Number,
+      },
+      fieldSizeConfig: {
+        type: Object,
       },
       applySettings: {
         type: Function,

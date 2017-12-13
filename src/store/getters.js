@@ -3,6 +3,7 @@ const getters = {
   colony: ({ colony }) => colony,
   colonyIsAlive: ({ colonyIsAlive }) => colonyIsAlive,
   speedOfGame: ({ speedOfGame }) => speedOfGame,
+  isMobile: ({ isMobile }) => isMobile,
 };
 
 export default getters;

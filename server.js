@@ -7,6 +7,7 @@ const compression = require('compression')
 const microcache = require('route-cache')
 const { createBundleRenderer } = require('vue-server-renderer')
 const ensureHttps = require('./middleware/ensure-https');
+const checkIsMobileByUserAgent = require('./src/utils/checkIsMobileByUserAgent');
 
 const resolve = file => path.resolve(__dirname, file)
 
@@ -100,9 +101,13 @@ function render (req, res) {
     }
   }
 
+  const userAgent = req.headers['user-agent'];
+  const isMobile = checkIsMobileByUserAgent(userAgent);
+
   const context = {
     title: 'Bacilki', // default title
-    url: req.url
+    url: req.url,
+    isMobile,
   }
   renderer.renderToString(context, (err, html) => {
     if (err) {

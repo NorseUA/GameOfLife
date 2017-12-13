@@ -10,8 +10,6 @@
 </template>
 
 <script>
-  import { fieldSizeConfig } from '../../constants';
-
   export default {
     name: 'FieldSizeControls',
     props: {
@@ -21,11 +19,16 @@
       initialSize: {
         type: Number,
       },
+      maxValue: {
+        type: Number,
+      },
+      step: {
+        type: Number,
+      },
     },
     methods: {
       changeFieldSize(evt) {
-        const { maxValue, step } = fieldSizeConfig;
-        const value = ((+evt.target.value % maxValue) + step);
+        const value = ((+evt.target.value % this.maxValue) + this.step);
         this.$emit('changeSize', {
           metricType: this.metricType,
           value,

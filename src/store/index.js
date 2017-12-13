@@ -18,6 +18,7 @@ function createStore() {
       listForCheck: {},
       colonyIsAlive: false,
       speedOfGame: defaultSettings.speed,
+      isMobile: null,
     },
     actions,
     getters,

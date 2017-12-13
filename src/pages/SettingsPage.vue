@@ -5,6 +5,7 @@
       :initialRows="fieldSize.rows"
       :initialColumns="fieldSize.columns"
       :initialSpeed="speedOfGame"
+      :fieldSizeConfig="getSizeConfig"
       :applySettings="applySettings"
       :cancelSettings="cancelSettings"
     ></settings>
@@ -14,6 +15,7 @@
 <script>
   import { mapGetters, mapActions } from 'vuex';
   import { Settings } from '../components';
+  import { fieldSizeConfig, mobileFieldSizeConfig } from '../constants';
 
   export default {
     name: 'SettingsPage',
@@ -21,9 +23,13 @@
       settings: Settings,
     },
     computed: {
+      getSizeConfig() {
+        return this.isMobile ? mobileFieldSizeConfig : fieldSizeConfig;
+      },
       ...mapGetters([
         'fieldSize',
         'speedOfGame',
+        'isMobile',
       ]),
     },
     methods: {

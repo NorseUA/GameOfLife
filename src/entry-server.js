@@ -1,4 +1,5 @@
 import createApp from './main';
+import { mobileDefaultFieldSettings } from './constants';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -21,7 +22,10 @@ export default context => {
 
     // set router's location
     router.push(url);
-
+    if (context.isMobile) {
+      store.state.fieldSize = mobileDefaultFieldSettings;
+    }
+    store.state.isMobile = context.isMobile;
     // wait until router has resolved possible async hooks
     router.onReady(() => {
       const matchedComponents = router.getMatchedComponents();
