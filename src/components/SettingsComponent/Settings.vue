@@ -111,4 +111,10 @@
   .buttons {
     margin-bottom: 150px;
   }
+
+  @media screen and (max-width: 767px) {
+    .buttons {
+      margin-bottom: 50px;
+    }
+  }
 </style>

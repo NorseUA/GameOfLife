@@ -21,8 +21,8 @@ export default {
     src: url('../static/fonts/sillyheart.regular.otf');
   }
   html {
-    background-color: rgba(255, 205, 0, 0.51);
-  }
+    background-color: #5d349a;
+  }s
   body {
     margin: 0;
   }
@@ -31,20 +31,20 @@ export default {
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
-    text-shadow: 2px 1px 5px #000, 0 0 1em #fd0;
+    text-shadow: 2px 1px 5px #000, 0 0 1em #0d29f3;
   }
 
   button.default {
     font-family: FunkyMother;
     font-size: 29px;
     border: none;
-    color: #00a6ee;
+    color: #27e3e4;
     background: none;
     border-radius: 3px;
     padding: 10px 25px;
     cursor: pointer;
     outline: none;
-    text-shadow: 2px 1px 5px #000, 0 0 1em #fd0;
+    text-shadow: 2px 1px 5px #000, 0 0 1em #0d29f3
   }
 
   button.default:hover{

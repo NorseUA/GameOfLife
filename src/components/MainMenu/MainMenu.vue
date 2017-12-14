@@ -28,7 +28,7 @@
     font-size: 40px;
     display: flex;
     flex-direction: column;
-    min-height: 250px;
+    min-height: 60vh;
     justify-content: center;
     align-items: center;
   }

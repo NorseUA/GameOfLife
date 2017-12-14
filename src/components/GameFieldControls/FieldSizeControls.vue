@@ -47,7 +47,7 @@
     outline: none;
     user-select: none;
     color: transparent;
-    text-shadow: 0 0 0 #1adf08, 2px 1px 5px #000;
+    text-shadow: 0 0 0 #1adf08, 2px 1px 5px #000, 0 0 1em #0d29f3;
     font-size: 40px;
     width: 60px;
     text-align: center;

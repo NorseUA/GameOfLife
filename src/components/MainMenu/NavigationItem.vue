@@ -24,7 +24,7 @@
   }
   a {
     text-decoration: none;
-    color: #00a6ee;
+    color: #27e3e4;
   }
   a:hover {
     color: #1adf08;

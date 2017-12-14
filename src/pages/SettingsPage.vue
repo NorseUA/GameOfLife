@@ -50,7 +50,7 @@
 <style scoped>
   .container {
     text-align: center;
-    color: #00a6ee;
+    color: #20bbff;
     font-size: 30px;
     display: flex;
     flex-direction: column;
