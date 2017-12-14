@@ -25,17 +25,9 @@
     border-radius: 5px;
   }
 
-  .cell:hover {
-    background-color: #fffa5f;
-  }
-
   .alive {
     background-color: #1ccd01;
     transition-duration: 150ms;
-  }
-
-  .alive:hover {
-    background-color: #1bac01;
   }
 
   @media screen and (max-width: 767px) {
@@ -45,4 +37,13 @@
     }
   }
 
+  @media screen and (min-width: 768px) {
+    .cell:hover {
+      background-color: #fffa5f;
+    }
+
+    .alive:hover {
+      background-color: #27f302;
+    }
+  }
 </style>
