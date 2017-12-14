@@ -3,9 +3,9 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-const HomePage  = () => import('../pages/HomePage.vue');
-const NewGamePage  = () => import('../pages/NewGamePage.vue');
-const SettingsPage  = () => import('../pages/SettingsPage.vue');
+const HomePage = () => import('../pages/HomePage.vue');
+const NewGamePage = () => import('../pages/NewGamePage.vue');
+const SettingsPage = () => import('../pages/SettingsPage.vue');
 
 function createRouter() {
   return new Router({
