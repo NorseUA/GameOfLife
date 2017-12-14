@@ -14,6 +14,7 @@ const mutations = {
   async [COMPUTE_EMPTY_COLONY](state) {
     const { rows, columns } = state.fieldSize;
     state.colony = await colonyService.createEmptyMatrix(rows, columns);
+    state.listForCheck = {};
   },
   [CHANGE_SETTINGS](state, { rows, columns, speed }) {
     const size = { ...state.fieldSize };
