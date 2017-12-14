@@ -22,7 +22,7 @@ export default {
   }
   html {
     background-color: #5d349a;
-  }s
+  }
   body {
     margin: 0;
   }

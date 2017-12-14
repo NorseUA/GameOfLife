@@ -8,7 +8,7 @@ export const speedValues = [
     label: 'Normal',
   },
   {
-    value: 100,
+    value: 150,
     label: 'Fast',
   },
 ];

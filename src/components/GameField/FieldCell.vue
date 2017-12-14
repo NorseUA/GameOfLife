@@ -21,7 +21,7 @@
     margin: -1px;
     background-color: #fd0;
     border: 1px solid rgba(173, 173, 173, 0.75);
-    transition-duration: 250ms;
+    transition-duration: 150ms;
     border-radius: 5px;
   }
 
@@ -31,7 +31,7 @@
 
   .alive {
     background-color: #1ccd01;
-    transition-duration: 250ms;
+    transition-duration: 150ms;
   }
 
   .alive:hover {

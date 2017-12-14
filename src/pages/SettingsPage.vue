@@ -62,4 +62,10 @@
     font-size: 35px;
     margin-bottom: 30px;
   }
+
+  @media screen and (max-width: 767px) {
+    .container {
+      min-height: 60vh;
+    }
+  }
 </style>
