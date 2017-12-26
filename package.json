@@ -1,6 +1,6 @@
 {
-  "name": "game-of-life",
-  "version": "0.0.1",
+  "name": "bacilki",
+  "version": "1.0.0",
   "description": "Game of Life",
   "author": "NorseUA <norseua@gmail.com>",
   "private": true,
